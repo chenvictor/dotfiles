@@ -1,4 +1,2 @@
 # vi editing
 set editing-mode vi
-# but still have C-l clear screen
-bind -m vi-insert "\C-l":clear-screen
