@@ -1,4 +1,4 @@
 alias rm='rm -i'
 alias mv='mv -i'
 alias cp='cp -i'
-alias vi='vim'
+alias p3='python3'

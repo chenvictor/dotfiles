@@ -2,4 +2,5 @@
 rsync --exclude ".git/" \
       --exclude "init.sh" \
       -ag --no-perms . ~;
-source ~/.bashrc
+echo "Files synced. Resource with"
+echo "source ~/.bashrc"
