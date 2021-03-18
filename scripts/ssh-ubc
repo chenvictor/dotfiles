@@ -1,0 +1,40 @@
+#!/bin/bash
+USAGE="Usage: $0 [-u CWL] [-s server] [-l lin#]\n   eg: $0 -u mycwl -s annacis -l 09"
+
+##########################################################
+# Default CWL, server, and linux machine to connect to   #
+# Note that LIN=0 means no linux machine                 #
+##########################################################
+CWL=CHANGE_ME
+SERVER=thetis
+LIN=0
+
+####################
+# Handle arguments #
+####################
+while getopts ": u:s:l:" o
+do    case "$o" in
+      u)    CWL="$OPTARG";;
+      s)    SERVER="$OPTARG";;
+      l)    LIN="$OPTARG";;
+      ?)    printf >&2 "Invalid arguments.\n$USAGE\n"
+            exit 1;;
+      esac
+done
+shift $((OPTIND-1))
+
+ROOT="students.cs.ubc.ca"
+LIN_PREFIX="lin"
+
+SERVER="$CWL@$SERVER.$ROOT"
+
+ARGS="$SERVER"
+if [ $LIN != 0 ]
+then
+  LIN="$CWL@$LIN_PREFIX$LIN.$ROOT"
+  ARGS="-J $SERVER $LIN"
+fi
+
+echo " >> ssh $ARGS <<"
+ssh $ARGS
+
