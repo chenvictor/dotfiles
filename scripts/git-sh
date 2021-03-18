@@ -2726,6 +2726,7 @@ gitalias n='git commit --verbose --amend'
 gitalias r='git remote'
 gitalias s='git status'
 gitalias ps='git push'
+gitalias pl='git pull'
 gitalias psup='git push --set-upstream origin $(git rev-parse --abbrev-ref HEAD)'
 gitalias t='git diff --cached'
 
