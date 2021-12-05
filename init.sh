@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
-rsync --exclude ".git/" \
+rsync --no-r -g \
       --exclude "init.sh" \
-      -ag --no-perms . ~;
-echo "Files synced. Resource with"
-echo "source ~/.bashrc"
+      .* ~;
+echo "Files synced. Resource with:  source ~/.bashrc"
